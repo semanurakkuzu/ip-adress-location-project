@@ -6,6 +6,7 @@ import Location from "./Location";
 export default function Search() {
   const [ipData, setIpData] = useState();
   const [ip, setIp] = useState();
+  const event = new Date(Date.UTC(2022, 11, 6, 3, 0, 0));
 
   const getDataFromApi = () => {
     fetch(`https://ipinfo.io/${ip}/json?token=91544cae5bed13`)
@@ -94,7 +95,7 @@ export default function Search() {
           <Information 
           country={ipData.country}
           region={ipData.region}
-          clock={ipData.timezone}
+          clock={event.toLocaleString('tr-TR', { timeZone: ipData.timezone })}
           >
           </Information>
         </div>)}
