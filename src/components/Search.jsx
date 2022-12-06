@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import MaskedInput from "react-text-mask";
+import Information from "./Information";
 import Location from "./Location";
 
 export default function Search() {
@@ -90,7 +91,12 @@ export default function Search() {
         </div>
         {ipData && (
         <div className="col-6 mt-150">
-          <p className="fs-3">{ipData.region}</p>
+          <Information 
+          country={ipData.country}
+          region={ipData.region}
+          clock={ipData.timezone}
+          >
+          </Information>
         </div>)}
         {ipData && (
           <div className="col-6 mt-150">
