@@ -1,8 +1,10 @@
+import Search from "./components/Search";
+
 function App() {
   return (
-    <>
-      <button className="btn btn-primary">deneme</button>
-    </>
+    <div className="container">
+      <Search></Search>
+    </div>
   );
 }
 

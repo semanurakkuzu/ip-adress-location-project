@@ -1,1 +1,8 @@
+body {
+    background: rgb(237, 134, 69);
+    background: linear-gradient(90deg, rgba(237, 134, 69, 1) 0%, rgba(188, 169, 152, 1) 48%, rgba(94, 197, 249, 1) 100%);
+}
 
+.mt-150 {
+    margin-top: 150px;
+}
