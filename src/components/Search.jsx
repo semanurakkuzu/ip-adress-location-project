@@ -1,6 +1,21 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import MaskedInput from "react-text-mask";
+
 export default function Search() {
+  const [ipData, setIpData] = useState();
+  const [ip, setIp] = useState();
+
+  const getDataFromApi = () => {
+    fetch(`https://ipinfo.io/${ip}/json?token=91544cae5bed13`)
+      .then((response) => response.json())
+      .then((ipData) => setIpData(ipData))
+      .catch((err) => console.error(err));
+  };
+
+  function handleIpSearch() {
+    getDataFromApi();
+  }
+
   const props = {
     guide: true,
     mask: (value) => {
@@ -53,20 +68,27 @@ export default function Search() {
 
       return value;
     },
+    onChange: (e) => {
+      setIp(e.target.value);
+    },
   };
+
   return (
     <>
       <div className="row mt-150 align-items-center">
         <div className="col-12 text-center">
-          <p className="fs-1">IP Adress</p>
+          <p className="fs-1">IP Address</p>
         </div>
         <div className="col-7 text-end">
           <MaskedInput {...props} />
         </div>
         <div className="col text-start">
-          <button className="btn btn-primary">Search</button>
+          <button className="btn btn-primary" onClick={handleIpSearch}>
+            Search
+          </button>
         </div>
       </div>
+      <p className="fs-3">{ipData && ipData.region}</p>
     </>
   );
 }
