@@ -75,6 +75,10 @@ export default function Search() {
       setIp(e.target.value);
     },
   };
+function locationReverser(loc) {
+return loc.split(',').reverse().join(',')
+}
+
 
   return (
     <>
@@ -101,7 +105,7 @@ export default function Search() {
         </div>)}
         {ipData && (
           <div className="col-6 mt-150">
-            <Location location={ipData.loc}></Location>
+            <Location location={locationReverser(ipData.loc)}></Location>
           </div>
         )}
       </div>
