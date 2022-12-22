@@ -1,4 +1,4 @@
-# Ip Address Location with React 
+# IP Address Location with React 
 
 ![ipadress](https://user-images.githubusercontent.com/110597975/209094916-02adb90f-42ff-413f-b76d-35c7d7707395.png)
 
